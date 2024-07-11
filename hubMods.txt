@@ -1,0 +1,34 @@
+realism
+Server Value Modifier
+waypoints
+bigbrain
+swag+donuts
+SAIN
+questing bots
+looting bots
+thats lit
+amand's graphics
+dynamic maps
+loot value
+Fontaine's FOV fix
+UI fixes
+live flea prices
+gilded key storage
+more checkmarks
+expanded task text
+search open containers
+dynamic external resolution
+use loose loot
+inventory organizing features
+Brokel's realistic night vision
+Brokel's realistic thermals
+ACOG4Life optics rework
+Painter
+Black Core
+Green Core
+Red Core
+Sand Core
+White Core
+Tactical Gear Component
+Mag Tape
+

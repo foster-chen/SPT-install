@@ -1,0 +1,10 @@
+{
+    "targetSptVersion": "3.9.0",
+    "url": "https://hub.sp-tarkov.com/files/?pageNo={}&sortField=cumulativeLikes&sortOrder=DESC",
+    "hubMods": {
+	
+    },
+    "otherMods": {
+	
+    }
+}
