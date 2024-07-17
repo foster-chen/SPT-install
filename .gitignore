@@ -2,3 +2,6 @@ cache/
 *.pyc
 *.pyo
 __pycache__/
+.vscode/
+dev.ipynb
+webCache.json

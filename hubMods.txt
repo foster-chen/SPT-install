@@ -1,34 +1,33 @@
-realism
-Server Value Modifier
-waypoints
-bigbrain
-swag+donuts
-SAIN
-questing bots
-looting bots
-thats lit
-amand's graphics
-dynamic maps
-loot value
-Fontaine's FOV fix
-UI fixes
-live flea prices
-gilded key storage
-more checkmarks
-expanded task text
-search open containers
-dynamic external resolution
-use loose loot
-inventory organizing features
-Brokel's realistic night vision
-Brokel's realistic thermals
-ACOG4Life optics rework
+SPT Realism Mod
+Server Value Modifier [SVM]
+Waypoints - Expanded Navmesh
+BigBrain
+SWAG + Donuts - Dynamic Spawn Waves and Custom Spawn Points
+SAIN - Solarint's AI Modifications - Full AI Combat System Replacement
+Questing Bots
+Looting Bots
+That's Lit - Logical AI Vision
+Amands's Graphics
+Dynamic Maps
+LootValue
+Fontaine's FOV Fix & Variable Optics
+UI Fixes
+Live Flea Prices
+Gilded Key Storage
+MoreCheckmarks
+Expanded Task Text (ETT)
+Search Open Containers
+Dynamic External Resolution Patch (DERP)
+Use Loose Loot
+Inventory Organizing Features
+Borkel's Realistic Night Vision Goggles (NVGs and T-7)
+Borkel's Big Realistic Thermal Package - Bring real life realism to your thermal scopes
+EFT Scope and Red Dot Sight Overhaul by Geff Hannigan
 Painter
-Black Core
-Green Core
-Red Core
-Sand Core
-White Core
+BlackCore
+GreenCore
+RedCore
+SandCore: FDE Retextures
+WhiteCore
 Tactical Gear Component
 Mag Tape
-

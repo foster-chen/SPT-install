@@ -1,10 +1,139 @@
 {
-    "targetSptVersion": "3.9.0",
+    "targetSptVersion": "SPT 3.9",
     "url": "https://hub.sp-tarkov.com/files/?pageNo={}&sortField=cumulativeLikes&sortOrder=DESC",
     "hubMods": {
-	
+        "SPT Realism Mod": {
+            "version": "SPT 3.8.3",
+            "download": "https://github.com/space-commits/SPT-Realism-Mod-Client/releases/tag/v1.3.1"
+        },
+        "Server Value Modifier [SVM]": {
+            "version": "SPT 3.9.2",
+            "download": "https://drive.google.com/file/d/1_3L0tPiWaxg_gxUnQTj7j75l6xF80JxF/view?usp=sharing"
+        },
+        "Waypoints - Expanded Navmesh": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/DrakiaXYZ/SPT-Waypoints/releases/download/1.5.0/DrakiaXYZ-Waypoints-1.5.0.7z"
+        },
+        "BigBrain": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/DrakiaXYZ/SPT-BigBrain/releases/download/1.0.0/DrakiaXYZ-BigBrain-1.0.0_3.9.0.7z"
+        },
+        "SWAG + Donuts - Dynamic Spawn Waves and Custom Spawn Points": {
+            "version": "SPT 3.9.2",
+            "download": "https://github.com/p-kossa/nookys-swag-presets-spt/releases/download/v3.5.0/SWAG-Donuts-v3.5.0-SPT390.zip"
+        },
+        "SAIN - Solarint's AI Modifications - Full AI Combat System Replacement": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/Solarint/SAIN/releases/download/v3.0.5-release/SAIN-3.0.5-for-SPT-3.9.1-Release.7z"
+        },
+        "Questing Bots": {
+            "version": "SPT 3.8.3",
+            "download": "https://github.com/dwesterwick/SPTQuestingBots/releases/download/0.6.1/DanW-SPTQuestingBots.zip"
+        },
+        "Looting Bots": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/Skwizzy/SPT-LootingBots/releases/download/v1.3.5-spt-3.9.0/Skwizzy-LootingBots-1.3.5.zip"
+        },
+        "That's Lit - Logical AI Vision": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/No3371/SPT_ThatsLit/releases/download/1.390.02/ThatsLit_1.390.02.zip"
+        },
+        "Amands's Graphics": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/Amands2Mello/AmandsGraphics/releases/download/1.6.3/AmandsGraphics.1.6.3.zip"
+        },
+        "Dynamic Maps": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/mpstark/SPT-DynamicMaps/releases/download/0.3.3/DynamicMaps-0.3.3-111ea758.zip"
+        },
+        "LootValue": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/IhanaMies/LootValue/releases/download/3.0.1/IhanaMies-LootValue-3.0.1.7z"
+        },
+        "Fontaine's FOV Fix & Variable Optics": {
+            "version": "SPT 3.8.3",
+            "download": "https://github.com/space-commits/SPT-FOV-Fix/releases/tag/v2.0.0"
+        },
+        "UI Fixes": {
+            "version": "SPT 3.9.1",
+            "download": "https://github.com/tyfon7/UIFixes/releases/download/v2.2.1/Tyfon-UIFixes-2.2.1.7z"
+        },
+        "Live Flea Prices": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/DrakiaXYZ/SPT-LiveFleaPrices/releases/download/1.2.0/DrakiaXYZ-LiveFleaPrices-1.2.0.zip"
+        },
+        "Gilded Key Storage": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/DrakiaXYZ/SPT-GildedKeyStorage/releases/download/1.4.0/Jehree-GildedKeyStorage-1.4.0.zip"
+        },
+        "MoreCheckmarks": {
+            "version": "SPT 3.9.2",
+            "download": "https://github.com/TommySoucy/MoreCheckmarks/releases/download/v1.5.14/MoreCheckmarks-1.5.14-for-3.9.0-30626.zip"
+        },
+        "Expanded Task Text (ETT)": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/CJ-SPT/Expanded-Task-Text/releases/download/V1.5.3/ExpandedTaskText.7z"
+        },
+        "Search Open Containers": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/DrakiaXYZ/SPT-SearchOpenContainers/releases/download/1.1.0/DrakiaXYZ-SearchOpenContainers-1.1.0.7z"
+        },
+        "Dynamic External Resolution Patch (DERP)": {
+            "version": "SPT 3.8.3",
+            "download": "https://github.com/MrFlashMode/SPT-Dynamic-External-Resolution/releases/download/latest/DynamicExternalResolution.dll"
+        },
+        "Use Loose Loot": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/DrakiaXYZ/SPT-UseLooseLoot/releases/download/1.2.0/Gaylatea-UseLooseLoot-1.2.0.7z"
+        },
+        "Inventory Organizing Features": {
+            "version": "SPT 3.7.X",
+            "download": "https://github.com/MiraculousNightingale/spt-aki-inventory-organizing-features/releases/download/v1.1.0-spt371/Nightingale-inventory_organizing_features-1.1.0-spt371.zip"
+        },
+        "Borkel's Realistic Night Vision Goggles (NVGs and T-7)": {
+            "version": "SPT 3.8.3",
+            "download": "https://drive.google.com/file/d/1Lc_Ky0BK0U2bC6flMXnau5Zy8lgr76Ax/view?usp=sharing"
+        },
+        "Borkel's Big Realistic Thermal Package - Bring real life realism to your thermal scopes": {
+            "version": "SPT 3.8.3",
+            "download": "https://drive.google.com/file/d/1APu5xCMMB4UfeS6ks1gzg556vKfQByjt/view?usp=sharing"
+        },
+        "EFT Scope and Red Dot Sight Overhaul by Geff Hannigan": {
+            "version": "SPT 3.0.0-3.3.0",
+            "download": "https://drive.google.com/file/d/1SM9QGSTAdqw0Abr7JUQQ6qocEtXEZzEP/view?usp=sharing"
+        },
+        "Painter": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/emilanderss0n/Painter/releases/download/1.0.9/MoxoPixel-Painter.zip"
+        },
+        "BlackCore": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/emilanderss0n/BlackCore/releases/download/1.1.1/MoxoPixel-BlackCore.zip"
+        },
+        "GreenCore": {
+            "version": "SPT 3.8.0",
+            "download": "https://emils.graphics/code/files/mods/MoxoPixel-GreenCore-1-0-7.zip"
+        },
+        "RedCore": {
+            "version": "SPT 3.8.0",
+            "download": "https://emils.graphics/code/files/mods/MoxoPixel-RedCore-1-0-3.zip"
+        },
+        "SandCore: FDE Retextures": {
+            "version": "SPT 3.8.0",
+            "download": "https://emils.graphics/code/files/mods/MoxoPixel-SandCore-1-0-3.zip"
+        },
+        "WhiteCore": {
+            "version": "SPT 3.8.0",
+            "download": "https://emils.graphics/code/files/mods/MoxoPixel-WhiteCore-1-0-5.zip"
+        },
+        "Tactical Gear Component": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/emilanderss0n/TGC/releases/download/1.1.2/MoxoPixel-TacticalGearComponent.zip"
+        },
+        "Mag Tape": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/emilanderss0n/MagTape/releases/download/1.0.6/MoxoPixel-MagTape.zip"
+        }
     },
-    "otherMods": {
-	
-    }
+    "otherMods": {}
 }
