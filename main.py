@@ -62,12 +62,9 @@ def colorize(string, color):
 def fetch_mod_tabs(URL, args, pages=40):
     if args.use_cache and os.path.exists("webcache.json"):
         with open("webcache.json", "r") as rf:
-            data = json.load(rf)
-            tabs = data["tabs"]
-            message =  f"using cache file created on {data['date']}"
+            webcache = json.load(rf)
+            message =  f"using cache file created on {webcache['date']}"
             print(f"{colorize(message, 'yellow')}")
-        for key in tabs:
-            tabs[key] = BeautifulSoup(tabs[key], "html.parser")
     else:
         tabs = {}
         for i in tqdm(range(pages), desc="Fetching from SPT hub: "):
@@ -78,13 +75,16 @@ def fetch_mod_tabs(URL, args, pages=40):
             currTabs = items.find_all('div', class_="filebaseFileDataContainer")
             for tab in tqdm(currTabs, leave=False):
                 modName = tab.find("h3", class_="filebaseFileSubject").text.strip()
-                tabs[modName] = tab.parent.parent
+                tabs[modName] = {"content": tab.parent.parent}
                 
         with open("webcache.json", "w") as wf:
-            result = {"date": datetime.now().strftime("%Y-%m-%d"),
-                      "tabs": {n: tabs[modName].prettify() for n in tabs}}
-            json.dump(result, wf)
-    return tabs
+            webcache = {"date": datetime.now().strftime("%Y-%m-%d"),
+                      "tabs": {n: {"content": tabs[n]["content"].prettify()} for n in tabs}}
+            json.dump(webcache, wf)
+
+        for key in webcache["tabs"]:
+            webcache["tabs"][key]["content"] = BeautifulSoup(webcache["tabs"][key]["content"], "html.parser")
+    return webcache
 
 def is_up_to_date(version, targetVersion):
     def numeric_version_compare(version: list, targetVersion: list):
@@ -98,7 +98,7 @@ def is_up_to_date(version, targetVersion):
     return numeric_version_compare(version, targetVersion)
 
 def is_installed_up_to_date(installation, targetVersion, args):
-    if not installation:
+    if not installation["BepInEx"] and not installation["user"]:
         return False
     for mod in installation["BepInEx"]:
         if not os.path.exists(os.path.join(args.spt_path, "BepInEx/plugins/", mod)):
@@ -118,18 +118,19 @@ def is_installed_up_to_date(installation, targetVersion, args):
 def main(args):
     args = parse_args(args)
     with open('manifest.json', 'r') as rf:
-        config = json.load(rf)
+        manifest = json.load(rf)
     with open("hub_mods.txt", "r") as rf:
         hubMods = [l.strip() for l in rf.readlines()]
-    modTabs = fetch_mod_tabs(config["url"], args=args)
-    targetSptVersion = config["targetSptVersion"]
+    webcache = fetch_mod_tabs(manifest["url"], args=args)
+    targetSptVersion = manifest["targetSptVersion"]
 
     # check mod names
     hasDiff = False
     for i, modName in tqdm(enumerate(hubMods), desc="Verifying hub mod list: ", total=len(hubMods)):
         highestScore = 0
         hubName = None
-        for modHubName in modTabs:
+        # find the closest name
+        for modHubName in webcache["tabs"]:
             score = dice_coefficient(modName, modHubName)
             if score >= highestScore:
                 highestScore = score
@@ -139,47 +140,62 @@ def main(args):
             print(f"\"{colorize(modName, 'yellow')}\" has been changed to \"{colorize(hubName, 'yellow')}\"")
             hubMods[i] = hubName
             hasDiff = True
-        # create config entry for new mod or update with new info
-        if not config["hubMods"].get(hubName) or not args.use_cache:
-            modUrl = modTabs[hubName].find("a").get("href")
+        # create manifest entry for new mod or update with new info
+        if not manifest["hubMods"].get(hubName) or not args.use_cache:
+            modUrl = webcache["tabs"][hubName]["content"].find("a").get("href")
             modPage = BeautifulSoup(fetch(modUrl, timeout=10).content, "html.parser")
             downloadLink = modPage.find("nav", class_="contentHeaderNavigation").find("a").get("href")
-            config["hubMods"][hubName] = {"version": modTabs[hubName].find("ul", class_="labelList").text.strip(),
-                                          "download": BeautifulSoup(fetch(downloadLink, timeout=20).content, "html.parser").find("a").get("href")}
+            if not manifest["hubMods"].get(hubName):
+                manifest["hubMods"][hubName] = {"version": "",
+                                              "download": "",
+                                              "installation": {"BepInEx": [],
+                                                               "user": []},
+                                              "dependencies": []}
+            manifest["hubMods"][hubName]["version"] = webcache["tabs"][hubName]["content"].find("ul", class_="labelList").text.strip()
+            if webcache["tabs"][hubName].get("download"):
+                manifest["hubMods"][hubName]["download"] = webcache["tabs"][hubName]["download"]
+            else:
+                downloadUrl = BeautifulSoup(fetch(downloadLink, timeout=20).content, "html.parser").find("a").get("href")
+                manifest["hubMods"][hubName]["download"] = downloadUrl
+                webcache["tabs"][hubName]["download"] = downloadUrl
             hasDiff = True
     if hasDiff:
         with open("hub_mods.txt", "w") as wf:
             for line in hubMods:
                 wf.write(f"{line}\n")
         with open("manifest.json", "w") as wf:
-            json.dump(config, wf)
-    
+            json.dump(manifest, wf)
+        with open("webcache.json", "w") as wf:
+            for modName in webcache["tabs"]:
+                webcache["tabs"][modName]["content"] = webcache["tabs"][modName]["content"].prettify()
+            json.dump(webcache, wf)
+
     # check installation/download mods
     download_list = []
     skipped_list = []
-    for modName, modInfo in config["hubMods"].items():
+    for modName, modInfo in manifest["hubMods"].items():
         # skipping mods with outdated dependencies
         if modInfo.get("dependencies"):
             for dependedMod in modInfo["dependencies"]:
-                if not is_up_to_date(config["hubMods"][dependedMod]["version"], targetSptVersion) and not args.include_outdated:
-                    print(f"{colorize('WARNING:', 'red')} skipping \"{modName}\" because it depends on an outdated mod \"{dependedMod}\" ({colorize(config["hubMods"][dependedMod]["version"], 'red')})")
+                if not is_up_to_date(manifest["hubMods"][dependedMod]["version"], targetSptVersion) and not args.include_outdated:
+                    print(f"{colorize('WARNING:', 'red')} skipping \"{modName}\" because it depends on an outdated mod \"{dependedMod}\" ({colorize(manifest["hubMods"][dependedMod]["version"], 'red')})")
                     skipped_list.append(modName)
                     break
         # skipping outdated mods
         elif not is_up_to_date(modInfo["version"], targetSptVersion) and not args.include_outdated:
-            print(f"{colorize('WARNING:', 'red')} skipping \"{modName}\" because it is outdated ({colorize(modInfo['version'], 'red')})")
+            print(f"{colorize('WARNING:', 'red')} skipping {colorize(modName, 'yellow')} because it is outdated {colorize('(' + modInfo['version'] + ')', 'red')}")
             skipped_list.append(modName)
         else:
             if is_installed_up_to_date(modInfo.get("installation"), targetSptVersion, args):
                 print(f"{colorize('-> ', 'blue')}\"{modName}\" is installed and {colorize('up-to-date', 'green')}")
                 continue
             color = "green" if is_up_to_date(modInfo["version"], targetSptVersion) else "red"
-            print(f"{colorize('-> ', 'blue')}{modName} ({colorize(modInfo['version'], color)}): {colorize(modInfo['download'], 'yellow')}")
+            print(f"{colorize('-> ', 'blue')}{modName} {colorize('(' + modInfo['version'] + ')', color)}: {colorize(modInfo['download'], 'blue')}")
             download_list.append(modName)
             input("Press Enter to continue...")
     
-    download_list_message = '\n'.join([colorize(f"\t{modName} ({config["hubMods"][modName]["version"]})", 'green') for modName in download_list])
-    skipped_list_message = '\n'.join([colorize(f"\t{modName} ({config["hubMods"][modName]["version"]})", 'red') for modName in skipped_list])
+    download_list_message = '\n'.join([colorize(f"\t{modName} ({manifest["hubMods"][modName]["version"]})", 'green') for modName in download_list])
+    skipped_list_message = '\n'.join([colorize(f"\t{modName} ({manifest["hubMods"][modName]["version"]})", 'red') for modName in skipped_list])
     print(f"\n{colorize('-> ', 'blue')}Downloadable mods:\n{download_list_message}")
     print(f"\n{colorize('-> ', 'blue')}Skipped mods:\n{skipped_list_message}")
 
