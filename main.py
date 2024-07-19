@@ -183,14 +183,14 @@ def main(args):
                     break
         # skipping outdated mods
         elif not is_up_to_date(modInfo["version"], targetSptVersion) and not args.include_outdated:
-            print(f"{colorize('WARNING:', 'red')} skipping \"{modName}\" because it is outdated ({colorize(modInfo['version'], 'red')})")
+            print(f"{colorize('WARNING:', 'red')} skipping {colorize(modName, 'yellow')} because it is outdated {colorize('(' + modInfo['version'] + ')', 'red')}")
             skipped_list.append(modName)
         else:
             if is_installed_up_to_date(modInfo.get("installation"), targetSptVersion, args):
                 print(f"{colorize('-> ', 'blue')}\"{modName}\" is installed and {colorize('up-to-date', 'green')}")
                 continue
             color = "green" if is_up_to_date(modInfo["version"], targetSptVersion) else "red"
-            print(f"{colorize('-> ', 'blue')}{modName} ({colorize(modInfo['version'], color)}): {colorize(modInfo['download'], 'yellow')}")
+            print(f"{colorize('-> ', 'blue')}{modName} {colorize('(' + modInfo['version'] + ')', color)}: {colorize(modInfo['download'], 'blue')}")
             download_list.append(modName)
             input("Press Enter to continue...")
     
