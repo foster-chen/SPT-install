@@ -29,7 +29,7 @@
         },
         "Waypoints - Expanded Navmesh": {
             "version": "SPT 3.9.2",
-            "download": "https://github.com/DrakiaXYZ/SPT-Waypoints/releases/download/1.5.1/DrakiaXYZ-Waypoints-1.5.1.7z",
+            "download": "https://github.com/DrakiaXYZ/SPT-Waypoints/releases/download/1.5.1/DrakiaXYZ-Waypoints-1.5.1.zip",
             "installation": {
                 "BepInEx": [
                     "DrakiaXYZ-Waypoints"
@@ -40,7 +40,7 @@
         },
         "BigBrain": {
             "version": "SPT 3.9.2",
-            "download": "https://github.com/DrakiaXYZ/SPT-BigBrain/releases/download/1.0.1/DrakiaXYZ-BigBrain-1.0.1.7z",
+            "download": "https://github.com/DrakiaXYZ/SPT-BigBrain/releases/download/1.0.1/DrakiaXYZ-BigBrain-1.0.1.zip",
             "installation": {
                 "BepInEx": [
                     "DrakiaXYZ-BigBrain.dll"
@@ -65,8 +65,8 @@
             ]
         },
         "SAIN - Solarint's AI Modifications - Full AI Combat System Replacement": {
-            "version": "SPT 3.9.2",
-            "download": "https://github.com/Solarint/SAIN/releases/download/v3.0.5-release/SAIN-3.0.5-for-SPT-3.9.1-Release.7z",
+            "version": "SPT 3.9.3",
+            "download": "https://github.com/Solarint/SAIN/releases/download/v3.0.6-release/SAIN.3.0.6-for-SPT-3.9.zip",
             "installation": {
                 "BepInEx": [
                     "SAIN"
@@ -124,7 +124,7 @@
             "dependencies": []
         },
         "Amands's Graphics": {
-            "version": "SPT 3.9.0",
+            "version": "SPT 3.9.3",
             "download": "https://github.com/Amands2Mello/AmandsGraphics/releases/download/1.6.3/AmandsGraphics.1.6.3.zip",
             "installation": {
                 "BepInEx": [
@@ -172,8 +172,8 @@
             "dependencies": []
         },
         "UI Fixes": {
-            "version": "SPT 3.9.1",
-            "download": "https://github.com/tyfon7/UIFixes/releases/download/v2.2.2/Tyfon-UIFixes-2.2.2.7z",
+            "version": "SPT 3.9.3",
+            "download": "https://github.com/tyfon7/UIFixes/releases/download/v2.3.0/Tyfon-UIFixes-2.3.0.zip",
             "installation": {
                 "BepInEx": [
                     "Tyfon.UIFixes.dll"
@@ -207,7 +207,7 @@
             "dependencies": []
         },
         "MoreCheckmarks": {
-            "version": "SPT 3.9.2",
+            "version": "SPT 3.9.3",
             "download": "https://github.com/TommySoucy/MoreCheckmarks/releases/download/v1.5.14/MoreCheckmarks-1.5.14-for-3.9.0-30626.zip",
             "installation": {
                 "BepInEx": [
@@ -275,8 +275,8 @@
             "dependencies": []
         },
         "Borkel's Realistic Night Vision Goggles (NVGs and T-7)": {
-            "version": "SPT 3.8.3",
-            "download": "https://drive.google.com/file/d/1Lc_Ky0BK0U2bC6flMXnau5Zy8lgr76Ax/view?usp=sharing",
+            "version": "SPT 3.9.3",
+            "download": "https://github.com/Borkel/RealisticNVG-client-2/releases/download/1.5.6/BRNVG-1.5.6.zip",
             "installation": {
                 "BepInEx": [
                     "BorkelRNVG"
@@ -288,8 +288,8 @@
             "dependencies": []
         },
         "Borkel's Big Realistic Thermal Package - Bring real life realism to your thermal scopes": {
-            "version": "SPT 3.8.3",
-            "download": "https://drive.google.com/file/d/1APu5xCMMB4UfeS6ks1gzg556vKfQByjt/view?usp=sharing",
+            "version": "SPT 3.9.3",
+            "download": "https://drive.google.com/file/d/1WHvn2x3UgIOmNIWXmmEOKIZbdE8_yIvm/view?usp=sharing",
             "installation": {
                 "BepInEx": [],
                 "user": [
@@ -330,12 +330,13 @@
                 ]
             },
             "dependencies": [
-                "Painter"
+                "Painter",
+                "Moxo-Pixel Realism compatibility patch"
             ]
         },
         "GreenCore": {
-            "version": "SPT 3.8.0",
-            "download": "https://emils.graphics/code/files/mods/MoxoPixel-GreenCore-1-0-7.zip",
+            "version": "SPT 3.9.3",
+            "download": "https://github.com/emilanderss0n/GreenCore/releases/download/1.0.8/MoxoPixel-GreenCore.zip",
             "installation": {
                 "BepInEx": [],
                 "user": [
@@ -343,7 +344,8 @@
                 ]
             },
             "dependencies": [
-                "Painter"
+                "Painter",
+                "Moxo-Pixel Realism compatibility patch"
             ]
         },
         "RedCore": {
@@ -356,7 +358,8 @@
                 ]
             },
             "dependencies": [
-                "Painter"
+                "Painter",
+                "Moxo-Pixel Realism compatibility patch"
             ]
         },
         "SandCore: FDE Retextures": {
@@ -369,12 +372,13 @@
                 ]
             },
             "dependencies": [
-                "Painter"
+                "Painter",
+                "Moxo-Pixel Realism compatibility patch"
             ]
         },
         "WhiteCore": {
-            "version": "SPT 3.8.0",
-            "download": "https://emils.graphics/code/files/mods/MoxoPixel-WhiteCore-1-0-5.zip",
+            "version": "SPT 3.9.3",
+            "download": "https://github.com/emilanderss0n/WhiteCore/releases/download/1.0.6/MoxoPixel-WhiteCore.zip",
             "installation": {
                 "BepInEx": [],
                 "user": [
@@ -382,12 +386,13 @@
                 ]
             },
             "dependencies": [
-                "Painter"
+                "Painter",
+                "Moxo-Pixel Realism compatibility patch"
             ]
         },
         "Tactical Gear Component": {
             "version": "SPT 3.9.2",
-            "download": "https://github.com/emilanderss0n/TGC/releases/download/1.1.2/MoxoPixel-TacticalGearComponent.zip",
+            "download": "https://github.com/emilanderss0n/TGC/releases/download/1.1.3/MoxoPixel-TacticalGearComponent.zip",
             "installation": {
                 "BepInEx": [],
                 "user": [
@@ -408,8 +413,74 @@
                 ]
             },
             "dependencies": [
-                "Painter"
+                "Painter",
+                "Moxo-Pixel Realism compatibility patch"
             ]
+        },
+        "Moxo-Pixel Realism compatibility patch": {
+            "version": "SPT 3.9.3",
+            "download": "https://drive.google.com/file/d/1-FIVnixbyQTe4ezcKEvg4Gpje4jzPskb/view?usp=sharing",
+            "installation": {
+                "BepInEx": [],
+                "user": []
+            },
+            "dependencies": []
+        },
+        "ATLAS Custom Weapons & Equipment": {
+            "version": "SPT 3.9.0",
+            "download": "https://drive.google.com/uc?export=download&id=1edM7zwpwA-PdgwZKoh6l4OLZM3D-e9NH",
+            "installation": {
+                "BepInEx": [],
+                "user": []
+            },
+            "dependencies": [
+                "REALISM COMPATIBILITY FOR ATLAS WEAPONS & EQUIPMENT"
+            ]
+        },
+        "REALISM COMPATIBILITY FOR ATLAS WEAPONS & EQUIPMENT": {
+            "version": "SPT 3.9.0",
+            "download": "https://drive.google.com/file/d/1AvQPFpKH3d-0vuV3Y_RkKm8wbjvcuDIQ/view?usp=sharing",
+            "installation": {
+                "BepInEx": [],
+                "user": []
+            },
+            "dependencies": []
+        },
+        "BrightLasers": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/acidphantasm/acidphantasm-brightlasers/releases/download/1.1.0/acidphantasm-brightlasers.7z",
+            "installation": {
+                "BepInEx": [],
+                "user": []
+            },
+            "dependencies": []
+        },
+        "SAMSWAT'S CALL OF DUTY: WARZONE - MIL-SIM: PARARESCUE": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/toxicspike/SamSWAT.COD.PARARESCUE.Fixed/releases/download/3.9.0/SamSWAT.COD.PARARESCUE.Fixed.zip",
+            "installation": {
+                "BepInEx": [],
+                "user": []
+            },
+            "dependencies": []
+        },
+        "SAMSWAT'S CALL OF DUTY: WARZONE - MIL-SIM: JW GROM": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/toxicspike/SamSWAT.COD.JW-GROM.Fixed/releases/download/3.9/SamSWAT.COD.JW-GROM.Fixed.zip",
+            "installation": {
+                "BepInEx": [],
+                "user": []
+            },
+            "dependencies": []
+        },
+        "SAMSWAT'S CALL OF DUTY: MW - MIL-SIM: CTSFO 1": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/toxicspike/SamSWAT.COD.CTSFO.Fixed/releases/download/3.9h1/SamSWAT-CoDMW_CTSFO1.Fixed.zip",
+            "installation": {
+                "BepInEx": [],
+                "user": []
+            },
+            "dependencies": []
         }
     },
     "customMods": {}

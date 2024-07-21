@@ -1,3 +1,5 @@
+# GAMEPLAY #
+
 SPT Realism Mod
 Server Value Modifier [SVM]
 Waypoints - Expanded Navmesh
@@ -7,23 +9,36 @@ SAIN - Solarint's AI Modifications - Full AI Combat System Replacement
 Questing Bots
 Looting Bots
 That's Lit - Logical AI Vision
+Live Flea Prices
+
+# GRAPHICS #
+
 Amands's Graphics
+Dynamic External Resolution Patch (DERP)
+Borkel's Realistic Night Vision Goggles (NVGs and T-7)
+Borkel's Big Realistic Thermal Package - Bring real life realism to your thermal scopes
+EFT Scope and Red Dot Sight Overhaul by Geff Hannigan
+
+# QoL #
+
 Dynamic Maps
 LootValue
 Fontaine's FOV Fix & Variable Optics
 UI Fixes
-Live Flea Prices
 Gilded Key Storage
 MoreCheckmarks
 Expanded Task Text (ETT)
 Search Open Containers
-Dynamic External Resolution Patch (DERP)
 Use Loose Loot
 Inventory Organizing Features
-Borkel's Realistic Night Vision Goggles (NVGs and T-7)
-Borkel's Big Realistic Thermal Package - Bring real life realism to your thermal scopes
-EFT Scope and Red Dot Sight Overhaul by Geff Hannigan
+BrightLasers
+
+# Trader #
+
 Painter
+
+# Items #
+
 BlackCore
 GreenCore
 RedCore
@@ -31,3 +46,9 @@ SandCore: FDE Retextures
 WhiteCore
 Tactical Gear Component
 Mag Tape
+Moxo-Pixel Realism compatibility patch
+ATLAS Custom Weapons & Equipment
+REALISM COMPATIBILITY FOR ATLAS WEAPONS & EQUIPMENT
+SAMSWAT'S CALL OF DUTY: WARZONE - MIL-SIM: PARARESCUE
+SAMSWAT'S CALL OF DUTY: WARZONE - MIL-SIM: JW GROM
+SAMSWAT'S CALL OF DUTY: MW - MIL-SIM: CTSFO 1
