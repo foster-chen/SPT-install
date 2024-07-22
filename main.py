@@ -22,6 +22,8 @@ def parse_args(args):
     parser.add_argument('spt_path', help="installation path of SPT")
     parser.add_argument('--include_outdated', action="store_true", help="sync mods even if it is outdated")
     parser.add_argument('--use_cache', action="store_true", help="use webpage information from cache file")
+    parser.add_argument('--skip_links', action="store_true", help="skip the mod download links and logs")
+    parser.add_argument('--pages', type=int, default=40, help="number of mod pages to crawl on SPT hub")
     args = parser.parse_args(args)
 
     return args
@@ -31,7 +33,7 @@ def fetch(url, timeout=10):
         try:
             response = requests.get(url, timeout=timeout)
             return response
-        except requests.exceptions.ConnectionError:
+        except requests.exceptions.ConnectionError or requests.exceptions.ReadTimeout:
             ans = input(f"ConnectionError with {url}. Retry? ([Y]/N)")
             if ans == "N":
                 raise requests.exceptions.ConnectionError
@@ -60,7 +62,7 @@ def colorize(string, color):
     assert color in COLOR_DICT
     return f"{COLOR_DICT[color]}{string}{COLOR_DICT['reset']}"
 
-def fetch_mod_tabs(pages=40):
+def fetch_mod_tabs(pages):
     '''
     get webcache from request or local cache depending on --use_cache
     '''
@@ -109,6 +111,7 @@ def verify_hub_mod_names(webcache):
         if hubName != modName:
             print(f"\"{colorize(modName, 'yellow')}\" has been changed to \"{colorize(hubName, 'yellow')}\"")
             hubMods[i] = hubName
+            hubModsFile[hubModsFile.index(modName)] = hubName
             hasDiff = True
         # create manifest entry for new mod or update with new info
         if not manifest["hubMods"].get(hubName) or not args.use_cache:
@@ -132,7 +135,7 @@ def verify_hub_mod_names(webcache):
     # save new entries
     if hasDiff:
         with open("hub_mods.txt", "w") as wf:
-            for line in hubMods:
+            for line in hubModsFile:
                 wf.write(f"{line}\n")
         with open("manifest.json", "w") as wf:
             json.dump(manifest, wf)
@@ -190,7 +193,8 @@ def verify_installation(type):
             outdated = False
             for dependedMod in modInfo["dependencies"]:
                 if not is_up_to_date(manifest[type][dependedMod]["version"]) and not args.include_outdated:
-                    print(f"{colorize('WARNING:', 'red')} skipping {colorize(modName, 'yellow')} because it depends on an outdated mod {colorize(dependedMod, 'yellow')} ({colorize(manifest[type][dependedMod]["version"], 'red')})")
+                    if not args.skip_links:
+                        print(f"{colorize('WARNING:', 'red')} skipping {colorize(modName, 'yellow')} because it depends on an outdated mod {colorize(dependedMod, 'yellow')} ({colorize(manifest[type][dependedMod]["version"], 'red')})")
                     skipped_list.append(modName)
                     outdated = True
                     break
@@ -198,16 +202,19 @@ def verify_installation(type):
                 continue
         # skipping outdated mods
         if not is_up_to_date(modInfo["version"]) and not args.include_outdated:
-            print(f"{colorize('WARNING:', 'red')} skipping {colorize(modName, 'yellow')} because it is outdated {colorize('(' + modInfo['version'] + ')', 'red')}")
+            if not args.skip_links:
+                print(f"{colorize('WARNING:', 'red')} skipping {colorize(modName, 'yellow')} because it is outdated {colorize('(' + modInfo['version'] + ')', 'red')}")
             skipped_list.append(modName)
         else:
             if is_installed_up_to_date(modInfo.get("installation")):
-                print(f"{colorize('-> ', 'blue')}\"{modName}\" is installed and {colorize('up-to-date', 'green')}")
+                if not args.skip_links:
+                    print(f"{colorize('-> ', 'blue')}\"{modName}\" is installed and {colorize('up-to-date', 'green')}")
                 continue
             color = "green" if is_up_to_date(modInfo["version"]) else "red"
-            print(f"{colorize('-> ', 'blue')}{modName} {colorize('(' + modInfo['version'] + ')', color)}: {colorize(modInfo['download'], 'blue')}")
+            if not args.skip_links:
+                print(f"{colorize('-> ', 'blue')}{modName} {colorize('(' + modInfo['version'] + ')', color)}: {colorize(modInfo['download'], 'blue')}")
+                input("Press Enter to continue...")
             download_list.append(modName)
-            input("Press Enter to continue...")
     
     download_list_message = '\n'.join([colorize(f"\t{modName} ({manifest[type][modName]["version"]})", 'green') for modName in download_list])
     skipped_list_message = '\n'.join([colorize(f"\t{modName} ({manifest[type][modName]["version"]})", 'red') for modName in skipped_list])
@@ -215,7 +222,7 @@ def verify_installation(type):
     print(f"\n{colorize('-> ', 'blue')}Skipped {type}:\n{skipped_list_message}")
 
 def main():
-    webcache = fetch_mod_tabs()
+    webcache = fetch_mod_tabs(args.pages)
 
     verify_hub_mod_names(webcache)
     verify_installation("hubMods")
@@ -229,7 +236,8 @@ if __name__ == "__main__":
     with open('manifest.json', 'r') as rf:
         manifest = json.load(rf)
     with open("hub_mods.txt", "r") as rf:
-        hubMods = [l.strip() for l in rf.readlines()]
+        hubModsFile = [l.strip() for l in rf.readlines()]
+        hubMods = [mod for mod in hubModsFile if mod and "#" not in mod]
     targetSptVersion = manifest["targetSptVersion"]
 
     main()
