@@ -219,7 +219,7 @@ def verify_installation(type):
     download_list_message = '\n'.join([colorize(f"\t{modName} ({manifest[type][modName]["version"]})", 'green') for modName in download_list])
     skipped_list_message = '\n'.join([colorize(f"\t{modName} ({manifest[type][modName]["version"]})", 'red') for modName in skipped_list])
     print(f"\n{colorize('-> ', 'blue')}Downloadable {type}:\n{download_list_message}")
-    print(f"\n{colorize('-> ', 'blue')}Skipped {type}:\n{skipped_list_message}")
+    print(f"\n{colorize('-> ', 'blue')}Skipped {type}:\n{skipped_list_message}\n")
 
 def main():
     webcache = fetch_mod_tabs(args.pages)

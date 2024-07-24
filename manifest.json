@@ -241,34 +241,12 @@
             },
             "dependencies": []
         },
-        "Dynamic External Resolution Patch (DERP)": {
-            "version": "SPT 3.8.3",
-            "download": "https://github.com/MrFlashMode/SPT-Dynamic-External-Resolution/releases/download/latest/DynamicExternalResolution.dll",
-            "installation": {
-                "BepInEx": [
-                    "DynamicExternalResolution.dll"
-                ],
-                "user": []
-            },
-            "dependencies": []
-        },
         "Use Loose Loot": {
             "version": "SPT 3.9.2",
             "download": "https://github.com/DrakiaXYZ/SPT-UseLooseLoot/releases/download/1.2.0/Gaylatea-UseLooseLoot-1.2.0.7z",
             "installation": {
                 "BepInEx": [
                     "Gaylatea-UseLooseLoot.dll"
-                ],
-                "user": []
-            },
-            "dependencies": []
-        },
-        "Inventory Organizing Features": {
-            "version": "SPT 3.7.X",
-            "download": "https://github.com/MiraculousNightingale/spt-aki-inventory-organizing-features/releases/download/v1.1.0-spt371/Nightingale-inventory_organizing_features-1.1.0-spt371.zip",
-            "installation": {
-                "BepInEx": [
-                    "InventoryOrganizingFeatures.dll"
                 ],
                 "user": []
             },
@@ -294,17 +272,6 @@
                 "BepInEx": [],
                 "user": [
                     "Realistic-Thermals-1.0.3"
-                ]
-            },
-            "dependencies": []
-        },
-        "EFT Scope and Red Dot Sight Overhaul by Geff Hannigan": {
-            "version": "SPT 3.0.0-3.3.0",
-            "download": "https://drive.google.com/file/d/1SM9QGSTAdqw0Abr7JUQQ6qocEtXEZzEP/view?usp=sharing",
-            "installation": {
-                "BepInEx": [],
-                "user": [
-                    "ACOG4Life-OpticRework"
                 ]
             },
             "dependencies": []
@@ -481,7 +448,75 @@
                 "user": []
             },
             "dependencies": []
+        },
+        "EFT SCOPE AND RED DOT SIGHT OVERHAUL BY GEFF HANNIGAN - Reupload": {
+            "version": "SPT 3.9.2",
+            "download": "https://www.mediafire.com/file/93m70moeofayimm/ACOG4Life-OpticRework-SPT-390.zip/file",
+            "installation": {
+                "BepInEx": [],
+                "user": [
+                    "ACOG4Life-OpticRework"
+                ]
+            },
+            "dependencies": []
+        },
+        "INVENTORY ORGANIZING FEATURES 3.9.0": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/Meepowski/SPT-InventoryOrganizingFeatures/releases/tag/Release",
+            "installation": {
+                "BepInEx": [
+                    "InventoryOrganizingFeatures.dll"
+                ],
+                "user": []
+            },
+            "dependencies": []
         }
     },
-    "customMods": {}
+    "customMods": {
+        "FIKA Client": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/project-fika/Fika-Plugin",
+            "installation": {
+                "BepInEx": [],
+                "user": []
+            },
+            "dependencies": []
+        },
+        "FIKA Server": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/project-fika/Fika-Server",
+            "installation": {
+                "BepInEx": [],
+                "user": []
+            },
+            "dependencies": []
+        },
+        "Realism Stance Sync": {
+            "version": "SPT 3.9.0",
+            "download": "https://github.com/space-commits/Realism-Stance-Replication/releases/tag/v1.0.1",
+            "installation": {
+                "BepInEx": [],
+                "user": []
+            },
+            "dependencies": []
+        },
+        "Thats Lit Sync": {
+            "version": "SPT 3.9.0",
+            "download": "https://cdn.discordapp.com/attachments/1245739513481924739/1261199192873767032/ThatsLitSync_1.390.02.zip?ex=66a14007&is=669fee87&hm=93081c981f9f2efbd7b84d733065bcf4eee5d99270f095c74fce78048bea99ca&",
+            "installation": {
+                "BepInEx": [],
+                "user": []
+            },
+            "dependencies": []
+        },
+        "Artillery": {
+            "version": "SPT 3.9.0",
+            "download": "https://cdn.discordapp.com/attachments/1224965567501307905/1260206991901462609/SSH-Artillery.zip?ex=66a19878&is=66a046f8&hm=9e5b10254bc8796218745475cd06fdb3d2a4968334d981a315250aaa7e50314a&",
+            "installation": {
+                "BepInEx": [],
+                "user": []
+            },
+            "dependencies": []
+        }
+    }
 }

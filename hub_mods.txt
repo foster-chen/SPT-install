@@ -1,5 +1,4 @@
 # GAMEPLAY #
-
 SPT Realism Mod
 Server Value Modifier [SVM]
 Waypoints - Expanded Navmesh
@@ -11,16 +10,15 @@ Looting Bots
 That's Lit - Logical AI Vision
 Live Flea Prices
 
-# GRAPHICS #
 
+# GRAPHICS #
 Amands's Graphics
-Dynamic External Resolution Patch (DERP)
 Borkel's Realistic Night Vision Goggles (NVGs and T-7)
 Borkel's Big Realistic Thermal Package - Bring real life realism to your thermal scopes
-EFT Scope and Red Dot Sight Overhaul by Geff Hannigan
+EFT SCOPE AND RED DOT SIGHT OVERHAUL BY GEFF HANNIGAN - Reupload
+
 
 # QoL #
-
 Dynamic Maps
 LootValue
 Fontaine's FOV Fix & Variable Optics
@@ -30,15 +28,15 @@ MoreCheckmarks
 Expanded Task Text (ETT)
 Search Open Containers
 Use Loose Loot
-Inventory Organizing Features
+INVENTORY ORGANIZING FEATURES 3.9.0
 BrightLasers
 
-# Trader #
 
+# Trader #
 Painter
 
-# Items #
 
+# Items #
 BlackCore
 GreenCore
 RedCore
